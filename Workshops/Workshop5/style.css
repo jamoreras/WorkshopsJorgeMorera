@@ -1,0 +1,84 @@
+
+body div{
+    border-radius: 5px;
+    margin: 1%;
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-color  {
+        background-color: yellow;
+        text-align: left;
+    }
+    .footer-color{
+        background-color: pink;
+        float: left;
+        width: 100%;
+        
+        }
+        .naranja{
+            background-color: orange;
+            width: 100%;
+            float: left;
+            display: none;
+        }
+        .blue{
+        
+            background-color: blue;
+            color: white;
+            float: left;
+        }
+        
+        .centro,.tutorial,.tool{
+        width: 100%;
+        }
+        .bg-color h1{
+            font-size: 2em;
+        }
+        .bg-color h3{
+            font-size: 1.5em;
+        }
+        .naranja-cbx{
+            background-color: orange;
+            width: 100%;
+            float: left;
+            display: block;
+        }
+}
+@media only screen and (min-width: 601px){
+    .bg-color  {
+
+        background-color: yellow;
+        text-align: center;
+    }
+    .footer-color{
+        background-color: pink;
+        float: left;
+        width: 100%;
+        
+        }
+        .naranja{
+            background-color: orange;
+            width: 31%;
+            float: left;
+            display: block;
+        }
+        .blue{
+        
+            background-color: blue;
+            color: white;
+            float: left;
+        }
+        
+        .centro,.tutorial,.tool{
+        width: 31%;
+        }
+        .naranja-cbx{
+            background-color: orange;
+            width: 100%;
+            float: left;
+            display: none;
+        }
+}
+
+
+
