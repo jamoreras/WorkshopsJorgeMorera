@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Edit Author</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/template.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <section>
+    <div class="d-flex flex-column">
+      <h1>Edit Author</h1>
+      <div class="form-contact-info">
+        <div class="error_msg" id="error_msg"></div>
+        <form id="book-form">
+          <label for="title">Author's title</label>
+          <input type="text" class="form-input" name="title" value="" placeholder="Type author title" class="required" id="title"  />
+          <!-- <input type="text" name="author" value="" placeholder="Type your author" class="required" id="author" /> -->
+          
+          <input type="button" value="Add" id="add-book-button" />
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- <script src="js/app.js" type="text/javascript"></script> -->
+  <script>
+    let searchParams = new URLSearchParams(window.location.search)
+    let param_id = searchParams.get('id')
+    function setEditAuthorInfo() {
+      const authors = JSON.parse(localStorage.getItem('authors'));
+      
+      if (authors) {
+        let rows = "";
+        authors.forEach((author, index) => {
+            if(author.id == param_id){
+                $('#title').val(author.name);
+            }
+        });
+      }
+    }
+    
+    function editAuthor(){
+      const authorName = $('#title').val();
+
+      //edit to a database
+      const authors = JSON.parse(localStorage.getItem('authors'));
+      
+      if (authors) {
+        let rows = "";
+        authors.forEach((author, index) => {
+            if(author.id == param_id){
+              author.name = authorName
+            }
+        });
+        localStorage.setItem('authors', JSON.stringify(authors));
+      }
+      window.location.href = 'authors.html';
+    }
+    
+    $('#add-book-button').bind('click', function(){
+      editAuthor();
+    }); 
+    setEditAuthorInfo();
+  </script>
+</body>
+
+</html>
